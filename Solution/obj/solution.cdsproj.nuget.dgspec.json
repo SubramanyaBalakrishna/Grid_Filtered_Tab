@@ -1,0 +1,118 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\ADA26ZZ\\Downloads\\Tools\\pcf\\Grid_FilteredTab\\solution\\solution.cdsproj": {}
+  },
+  "projects": {
+    "C:\\Users\\ADA26ZZ\\Downloads\\Tools\\pcf\\Grid_FilteredTab\\Grid_FilteredTab.pcfproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\ADA26ZZ\\Downloads\\Tools\\pcf\\Grid_FilteredTab\\Grid_FilteredTab.pcfproj",
+        "projectName": "Grid_FilteredTab",
+        "projectPath": "C:\\Users\\ADA26ZZ\\Downloads\\Tools\\pcf\\Grid_FilteredTab\\Grid_FilteredTab.pcfproj",
+        "packagesPath": "C:\\Users\\ADA26ZZ\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ADA26ZZ\\Downloads\\Tools\\pcf\\Grid_FilteredTab\\obj\\",
+        "projectStyle": "PackageReference",
+        "UsingMicrosoftNETSdk": false,
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\ADA26ZZ\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net462"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net462": {
+            "targetAlias": "net462",
+            "projectReferences": {}
+          }
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net462": {
+          "targetAlias": "net462",
+          "dependencies": {
+            "Microsoft.NETFramework.ReferenceAssemblies": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
+            "Microsoft.PowerApps.MSBuild.Pcf": {
+              "target": "Package",
+              "version": "[1.*, )"
+            }
+          }
+        }
+      }
+    },
+    "C:\\Users\\ADA26ZZ\\Downloads\\Tools\\pcf\\Grid_FilteredTab\\solution\\solution.cdsproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\ADA26ZZ\\Downloads\\Tools\\pcf\\Grid_FilteredTab\\solution\\solution.cdsproj",
+        "projectName": "solution",
+        "projectPath": "C:\\Users\\ADA26ZZ\\Downloads\\Tools\\pcf\\Grid_FilteredTab\\solution\\solution.cdsproj",
+        "packagesPath": "C:\\Users\\ADA26ZZ\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ADA26ZZ\\Downloads\\Tools\\pcf\\Grid_FilteredTab\\solution\\obj\\",
+        "projectStyle": "PackageReference",
+        "UsingMicrosoftNETSdk": false,
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\ADA26ZZ\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net462"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net462": {
+            "targetAlias": "net462",
+            "projectReferences": {
+              "C:\\Users\\ADA26ZZ\\Downloads\\Tools\\pcf\\Grid_FilteredTab\\Grid_FilteredTab.pcfproj": {
+                "projectPath": "C:\\Users\\ADA26ZZ\\Downloads\\Tools\\pcf\\Grid_FilteredTab\\Grid_FilteredTab.pcfproj"
+              }
+            }
+          }
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net462": {
+          "targetAlias": "net462",
+          "dependencies": {
+            "Microsoft.NETFramework.ReferenceAssemblies": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
+            "Microsoft.PowerApps.MSBuild.Solution": {
+              "target": "Package",
+              "version": "[1.*, )"
+            }
+          }
+        }
+      }
+    }
+  }
+}

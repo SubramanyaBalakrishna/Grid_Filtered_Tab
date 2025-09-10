@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<manifest>
+  <control namespace="Subramanya" constructor="GridTabFilter" version="0.0.1" display-name-key="GridTabFilter" description-key="GridTabFilter description" control-type="standard" >  
+    <external-service-usage enabled="false">    
+    </external-service-usage>    
+    <data-set name="sampleDataSet" display-name-key="Dataset_Display_Key" cds-data-set-options="displayCommandBar:true;displayViewSelector:true;displayQuickFindSearch:true">     
+    </data-set>
+    <property name="TabOptionSetField" display-name-key="Tab OptionSet Field" description-key="Select the option set field for tab generation"
+      of-type="SingleLine.Text" usage="input" required="true" />
+    <resources>
+      <code path="index.ts" order="1"/>  
+      <css path="css/DetailListGridControl.css" order="1" />    
+    </resources>    
+  </control>
+</manifest>
