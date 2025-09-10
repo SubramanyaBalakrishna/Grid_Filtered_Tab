@@ -1,7 +1,8 @@
 # Grid_Filtered_Tab
 - A control to render model driven grids with tabs as option for option set filter 
 
- <img width="866" height="362" alt="image" src="https://github.com/user-attachments/assets/9068a254-784d-4f8f-8a64-ae4a3213049a" />
+![Tab_Grid1](https://github.com/user-attachments/assets/b2ca053d-4e2e-418e-9622-37425719db58)
+
 
 # Steps: 
 - Form [make.powerapps.com](https://make.powerapps.com/) portal, Open Specific table and then view where you intend to add control and click on components 
