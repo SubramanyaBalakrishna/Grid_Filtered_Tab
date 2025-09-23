@@ -50,6 +50,8 @@ export const DetailListGridControl: React.FC<IProps> = (props) => {
   const [selectedItemCount, setSelectedItemCount] = React.useState(0);  
   const [statuses, setStatuses] = React.useState<StatusTab[]>([]);
   const [selectedStatus, setSelectedStatus] = React.useState<string | null>(null);
+  const [sortedColumnKey, setSortedColumnKey] = React.useState<string | null>(null);
+  const [isSortedDescending, setIsSortedDescending] = React.useState<boolean>(false);
 
   // Set the isDataLoaded state based upon the paging totalRecordCount
   React.useEffect(() => {
@@ -105,17 +107,20 @@ export const DetailListGridControl: React.FC<IProps> = (props) => {
   }
   
   const _onColumnClick = (ev?: React.MouseEvent<HTMLElement>, column?: IColumn): void => {
-    let isSortedDescending = column?.isSortedDescending;
+    let isDescending = column?.isSortedDescending;
 
     if (column?.isSorted) {
-      isSortedDescending = !isSortedDescending;
+      isDescending = !isDescending;
     }
 
-    setItems(copyAndSort(items, column?.fieldName!, props.pcfContext, isSortedDescending));
+    setSortedColumnKey(column?.fieldName || null);
+    setIsSortedDescending(isDescending || false);
+
+    setItems(copyAndSort(items, column?.fieldName!, props.pcfContext, isDescending));
     setColumns(
       columns.map(col => {
         col.isSorted = col.key === column?.key;
-        col.isSortedDescending = isSortedDescending;
+        col.isSortedDescending = isDescending;
         return col;
       })
     );
@@ -132,11 +137,17 @@ export const DetailListGridControl: React.FC<IProps> = (props) => {
     )
   }
 
-  // Filter grid items based on selected tab/status
+  // Filter grid items based on selected tab/status and apply sorting
   const filteredItems = React.useMemo(() => {
-    if (!selectedStatus) return items;
-    return items.filter(item => String(item[`${tabField}_raw`]) === selectedStatus);
-  }, [items, selectedStatus, tabField]);
+    let filtered = items;
+    if (selectedStatus) {
+      filtered = items.filter(item => String(item[`${tabField}_raw`]) === selectedStatus);
+    }
+    if (sortedColumnKey) {
+      filtered = copyAndSort(filtered, sortedColumnKey, props.pcfContext, isSortedDescending);
+    }
+    return filtered;
+  }, [items, selectedStatus, tabField, sortedColumnKey, isSortedDescending]);
 
   return (
     <Stack grow
@@ -264,7 +275,7 @@ const getColumns = (pcfContext: ComponentFramework.Context<IInputs>): IColumn[] 
         <span>{item[col!.fieldName!]}</span>
       );
     }
-    //create links for primary field and entity reference.
+    // Create links for primary field and entity reference.
     else if (column.dataType.startsWith('Lookup.') || column.isPrimary) {
       iColumn.onRender = (item: any, index: number | undefined, column: IColumn | undefined) => (
         <Link key={item.key} onClick={() => navigate(item, column!.fieldName, pcfContext)}>{item[column!.fieldName!]}</Link>
@@ -281,7 +292,7 @@ const getColumns = (pcfContext: ComponentFramework.Context<IInputs>): IColumn[] 
       );
     }
     
-    const isSorted = dataSet?.sorting?.findIndex(s => s.name === column.name) !== -1 || false
+    const isSorted = dataSet?.sorting?.findIndex(s => s.name === column.name) !== -1 || false;
     iColumn.isSorted = isSorted;
     if (isSorted) {
       iColumn.isSortedDescending = dataSet?.sorting?.find(s => s.name === column.name)?.sortDirection === 1 || false;
@@ -331,7 +342,7 @@ const updateColumnWidths = (columns: IColumn[], pcfContext: ComponentFramework.C
   });
 }
 
-//sort the items in the grid.
+// Sort the items in the grid.
 const copyAndSort = <T,>(items: T[], columnKey: string, pcfContext: ComponentFramework.Context<IInputs>, isSortedDescending?: boolean): T[] => {
   const key = columnKey as keyof T;
   const sortedItems = items.slice(0);
@@ -351,4 +362,4 @@ const getUserLanguage = (pcfContext: ComponentFramework.Context<IInputs>): strin
 
 const isEntityReference = (obj: any): obj is ComponentFramework.EntityReference => {
   return typeof obj?.etn === 'string';
-}
+} 
